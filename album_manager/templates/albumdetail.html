@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ album }}{% endblock title %}
+{% block content %}
+    <p class="py-4">Has elegido el album: <strong>{{ album | capfirst }}</strong></p>
+   
+    <img src="{{ album.front_page.url }}" alt="Imagen de {{album}}" class="card-img-top" style="height: 400px; width: 100%; object-fit: cover;">
+    <h3>Informacion:</h3>
+    <ul>
+        
+        <li>Titulo: {{ album.title }}</li>
+        <li>Año de lanzamiento: {{ album.year }}</li>
+        <li>Género: {{ album.gender }}</li>
+        <li>Artista: {{ album.artist }}</li>
+
+        
+    </ul>
+{% endblock content %}

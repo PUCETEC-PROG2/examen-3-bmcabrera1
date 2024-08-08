@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+  Catalog
+{% endblock %}
+{% block content %}
+  <h3 class="p-4 text-center" style="font-family: 'Blackletter', cursive; color: #E3F2FD; text-shadow: 2px 2px 4px #000000;">Albums</h3>
+
+  <div class="card-group">
+    {% for album in album %}
+      <div class="card m-3 shadow-lg border-0" style="border-radius: 12px; overflow: hidden;">
+        <img src="{{ album.front_page.url }}" alt="Imagen de {{ album }}" class="card-img-top" style="height: 400px; width: 100%; object-fit: cover;" />
+        <div class="card-body" style="background-color: rgba(0, 0, 0, 0.7); color: #E3F2FD;">
+          <h4 class="card-title" style="font-family: 'Franklin Gothic Medium', sans-serif;">{{ album }}</h4>
+          <p class="card-text">
+            Title: {{ album.title }} <br />
+          </p>
+          <a href="album/{{ album.id_album }}" class="btn btn-outline-light me-2"><i class="fa-regular fa-eye"></i></a>
+          <a href="edit_album/{{ album.id_album }}" class="btn btn-outline-light me-2"><i class="fa fa-pencil"></i></a>
+          <a href="remove_album/{{ album.id_album }}" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <h3 class="p-4 text-center" style="font-family: 'Blackletter', cursive; color: #E3F2FD; text-shadow: 2px 2px 4px #000000;">Artists</h3>
+
+  <div class="card-group">
+    {% for artist in artist %}
+      <div class="card m-3 shadow-lg border-0" style="border-radius: 12px; overflow: hidden;">
+        <div class="card-body" style="background-color: rgba(0, 0, 0, 0.7); color: #E3F2FD;">
+          <h4 class="card-title" style="font-family: 'Franklin Gothic Medium', sans-serif;">{{ artist }}</h4>
+          <p class="card-text">
+            Name: {{ artist.name }} <br />
+          </p>
+          <a href="artist/{{ artist.id_artist }}" class="btn btn-outline-light me-2"><i class="fa-regular fa-eye"></i></a>
+          <a href="edit_artist/{{ artist.id_artist }}" class="btn btn-outline-light me-2"><i class="fa fa-pencil"></i></a>
+          <a href="remove/{{ artist.id_artist }}" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

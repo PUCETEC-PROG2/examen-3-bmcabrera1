@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ artist }}{% endblock title %}
+{% block content %}
+    <p class="py-4">Has elegido el Artista: <strong>{{ artist | capfirst }}</strong></p>
+   
+    <h3>Informacion:</h3>
+    <ul>
+        
+        <li>Nombre: {{ artist.name }}</li>
+        <li>País de Origen: {{ artist.country }}</li>
+
+        
+    </ul>
+{% endblock content %}
